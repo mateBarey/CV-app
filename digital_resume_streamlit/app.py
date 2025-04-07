@@ -48,6 +48,15 @@ TRAINING_AND_CERT = {
 }
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+st.markdown("""
+<!-- Plausible Analytics -->
+<script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+<script>
+window.plausible = window.plausible || function() {
+  (window.plausible.q = window.plausible.q || []).push(arguments)
+}
+</script>
+""", unsafe_allow_html=True)
 
 
 # --- LOAD CSS, PDF & PROFIL PIC ---
@@ -66,12 +75,11 @@ with col1:
 with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
-    st.download_button(
-        label=" 📄 Download Resume",
-        data=PDFbyte,
-        file_name=resume_file.name,
-        mime="application/octet-stream",
-    )
+    st.markdown(f"""
+    <a href="assets/CV.pdf" download onclick="plausible('Download Resume')" style="font-size:18px;">
+    📄 Download Resume
+    </a>
+    """, unsafe_allow_html=True)
     st.write("📫", EMAIL)
 
 
@@ -82,13 +90,14 @@ cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].markdown(
         f"""
-        <a href="{meta['url']}" target="_blank">
+        <a href="{meta['url']}" target="_blank" onclick="plausible('Click {platform}')">
             <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
             {platform}
         </a>
         """,
         unsafe_allow_html=True
     )
+
 
 
 # --- EXPERIENCE & QUALIFICATIONS ---
