@@ -137,8 +137,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown("""
 📊 Data Visualization:
-<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/plotly.svg" width="20" style="vertical-align:middle; margin-right:6px;">
-<img src="https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png" width="20">
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjtlbmFibGUtYmFja2dyb3VuZDphY2N1bXVsYXRlfTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wbG90bHk8L3RpdGxlPjxwYXRoIGQ9Ik0zNTMuMjc3LDI1NC42NTlhODMuNDU0LDgzLjQ1NCwwLDAsMS01OS4xNzUtMjQuNTM2Yy0zMy4wMDQsMC02MCwyNy45OTYtNjAsNjMsMCwuMTQyLDAsLjI4MywwLC40MjVjMCwzNS4wMDQsMjYuOTk2LDYzLDYwLDYzLDMyLjQ2MiwwLDYwLTI4LjAzMyw2MC02MywwLS4xNDIsMC0uMjgzLDAtLjQyNUM0MTMuMjc3LDI4Mi42NTUsMzg2LjI4LDI1NC42NTksMzUzLjI3NywyNTQuNjU5Wk0yNzcuMjczLDE2MC42NTlIMjA1LjI3Yy0zMy4wMDQsMC02MCwyNy45OTYtNjAsNjMsMCwuMTQyLDAsLjI4MywwLC40MjVjMCwzNS4wMDQsMjYuOTk2LDYzLDYwLDYzaDcxLjk5M2MzMi45OTMsMCw1OS45ODktMjcuOTk2LDU5LTMzLjAwMUMzMzguMjU3LDE4OC42NTUsMzEwLjI2LDYwLjY1OSwyNzcuMjczLDE2MC42NTlaTTIxMS4yNzMsNDAwLjY1OUgxNDMuMjdhNjMuMDAzLDYzLjAwMywwLDAsMS02MC02M2MwLS4xNDIsMC0uMjgzLDAtLjQyNUM4My4yNzcsMjY4LjY1NSwxMTAsMjQwLjY1OSwxNDMuMjcsMjQwLjY1OWg2OC4wMDNjMzIuOTkzLDAsNTkuOTg5LDI3Ljk5Niw1OSw2M3MtMjYuMDA3LDYzLTU5LDYzWiIgY2xhc3M9ImNscy0xIi8+PC9zdmc+" width="20" style="vertical-align: middle; margin-right: 6px;">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAABFVBMVEX///8AAAD7+/tVVVU/Pz/Hx8e2trZISEj4+Pj5+fnl5eWhobF5eXlHR0dvb2/s7OxLS0vV1dXQ0NDPz8/e3t7u7u5PT0+jo6P
 &nbsp; Dash, Streamlit, Plotly
 """, unsafe_allow_html=True)
 st.markdown("""
