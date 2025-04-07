@@ -49,9 +49,9 @@ with open(resume_file, "rb") as pdf_file:
     
 #remember to add a selenium crawler and beautifulsoup code
 PROJECTS = {
-    "🏆 DGenerative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Rag-GEN-AI",
+    "🏆 Generative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Rag-GEN-AI",
     "🏆 Apache Spark Prediction Pipeline - use IOT data and spark to predict Pressure": "https://github.com/mateBarey/Apache-Spark-IOT-Prediction-Pipeline",
-    "🏆 Actor Critic Reinforcement Learning NN - A reinforcement algorithm that uses an actor for finding the best policy and critic which enables finding the best probability associated with each action to take in order to solve the Cart Pole Problem ": "https://github.com/mateBarey/Reinforcement-Learning",
+    "🏆 Actor Critic Reinforcement Learning NN - A reinforcement algorithm that uses an actor for finding the best policy and critic which enables finding the best probability associated with each action in order to solve the Cart Pole Problem ": "https://github.com/mateBarey/Reinforcement-Learning",
 
 }
 
@@ -149,10 +149,10 @@ for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
 
 # --- EXPERIENCE & QUALIFICATIONS ---
 st.write('\n')
-st.subheader("Experience & Qulifications")
+st.subheader("Experience & Qualifications")
 st.write(
     """
-- ✔️ 6+ Years expereince extracting actionable insights from data
+- ✔️ 6+ Years of experience extracting actionable insights from data
 - ✔️ Strong hands on experience and knowledge in Python and SQL
 - ✔️ Good understanding of statistical principles and their respective applications
 - ✔️ Excellent team-player and displaying strong sense of initiative on tasks
@@ -178,7 +178,7 @@ st.markdown("""
 &nbsp; Dash, Streamlit, Plotly
 """, unsafe_allow_html=True)
 st.markdown("""
-🧠 Modeling: Logistic Regression, RL, Neural Nets, LLM, Xgboost, Natural Evoluation
+🧠 Modeling: Logistic Regression, RL, Neural Nets, LLM, Xgboost, Natural Evolution
 """)
 st.markdown("""
 🗄️ Databases:
@@ -259,7 +259,7 @@ st.write("🚧", "**Python Developer | Kinstone Investment Properties**")
 st.write("07/2019 - 03/2022")
 st.write(
     """
-- ► Model valuation and acquisition of new properties using Pandas, NumPy and Sci-kitlearn in Jupyter Notebook
+- ► Model valuation and acquisition of new properties using Pandas, NumPy and Scikit-learn in Jupyter Notebook
 - ► Utilize BeautifulSoup and Selenium to scrape Freddie Mac Multi Family Index information and Case Shiller Housing Price index information adjusted for real inflation. Construct Bridge API’s to schedule updated cost valuations for properties in certain areas of Houston using the Zillow API.
 - ► Apply Monte Carlo Analysis using NumPy for building a real time and cost estimate for predicting a Levered and Unlevered IRR.
 """
@@ -271,7 +271,7 @@ st.write("🚧", "**Python Engineer | Mass Action Engineering**")
 st.write("01/2019 - 07/2019")
 st.write(
     """
-- ►Created Python scripts for processing all P & ID's and PFD's .
+- ► Created Python scripts for processing all P & ID's and PFD's .
 - ► Designed a process calculation utilizing NumPy, Pandas and Jupyter Notebook. The scripts were modularized to have each unit process within its own class using OOP principles.
 - ► Worked with a tech team to effectively simulate the Free Radical Emulsion Polymerization of the monomer Vinylidene Fluoride.
 """
@@ -287,7 +287,7 @@ st.write(
 - ► Built an Anti-Collision Risk Analysis Web application using Django Framework that calculated the risk between Planned Well Spreadsheet and Existing wells.
 - ► Created a script that used a pretrained Neural network to extract Scanned Well File Data to a csv using a Linux shell script.
 - ► Built scrapers using beautifulsoup4 and Selenium.
-- ► Designed a drilling web application using Django and a machine learning algorithm that modeled drawdown for Production using Scikit-learn.
+- ► Designed a drilling web application using Django and a machine learning algorithm that modeled drawdown for Production using Scikit-learn.
 - ► Developed models using ArcGIS, Python, Arcpy , SQL, Excel
 """
 )
