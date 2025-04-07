@@ -33,14 +33,14 @@ SOCIAL_MEDIA = {
 }
 #remember to add a selenium crawler and beautifulsoup code
 PROJECTS = {
-    "🏆 DGenerative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Apache-Spark-IOT-Prediction-Pipeline",
+    "🏆 DGenerative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Rag-GEN-AI",
     "🏆 Apache Spark Prediction Pipeline - use IOT data and spark to predict Pressure": "https://github.com/mateBarey/Apache-Spark-IOT-Prediction-Pipeline",
     "🏆 Actor Critic Reinforcement Learning NN - A reinforcement algorithm that uses an actor for finding the best policy and critic which enables finding the best probability associated with each action to take in order to solve the Cart Pole Problem ": "https://github.com/mateBarey/Reinforcement-Learning",
 
 }
 
 TRAINING_AND_CERT = {
-    "🏆 IBM - AI Engineering Professional": "https://github.com/mateBarey/Apache-Spark-IOT-Prediction-Pipeline",
+    "🏆 IBM - AI Engineering Professional": "https://www.coursera.org/account/accomplishments/specialization/certificate/XJ95RYV4Z5TC",
     "🏆 Google - Machine Learning ": "https://www.coursera.org/account/accomplishments/specialization/certificate/P57BYGZPYANV",
     "🏆 Google - Reinforcement Learning ": "https://www.coursera.org/account/accomplishments/certificate/AGP9TE8AFPSC",
     "🏆 Databricks - Generative AI Application Deployment and Monitoring ": "https://partner-academy.databricks.com/learn/courses/2713/generative-ai-application-deployment-and-monitoring?hash=4eb84e548e6738f215a6b502ace79c310e93fd86&generated_by=975654",
@@ -107,17 +107,50 @@ st.write(
 # --- SKILLS ---
 st.write('\n')
 st.subheader("Hard Skills")
-st.write(
-    """
-- 👩‍💻 Programming: Python (Scikit-learn, Pandas, Polars), SQL, Rust, R, Ruby
-- 📊 Data Visulization: Dash, Streamlit, Plotly
-- 📚 Modeling: Logistic regression, linear regression, RL, Neural Nets, LLM
-- 🗄️ Databases: Postgres, MongoDB, MySQL, SqlServer
-- 🗄️ Frameworks: FastAPI, Databricks, Django, Flask 
-- 🗄️ Devops & Cloud: Git, Docker, Github Actions, Linux
-- 📚 Analytics: Datrbicks, Apache Spark 
-"""
-)
+st.markdown("""
+👩‍💻 Programming:
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain.svg" width="20">
+ &nbsp; Python, Rust, R, Ruby, SQL, Scikit-learn, Pandas, Polars
+""", unsafe_allow_html=True)
+st.markdown("""
+📊 Data Visualization:
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Plotly_logo.png" width="20">
+<img src="https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png" width="20">
+&nbsp; Dash, Streamlit, Plotly
+""", unsafe_allow_html=True)
+st.markdown("""
+🧠 Modeling: Logistic Regression, Linear Regression, RL, Neural Nets, LLM
+""")
+st.markdown("""
+🗄️ Databases:
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="20">
+&nbsp; Postgres, MongoDB, MySQL, SqlServer
+""", unsafe_allow_html=True)
+st.markdown("""
+🧱 Frameworks:
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="20">
+&nbsp; FastAPI, Databricks, Django, Flask
+""", unsafe_allow_html=True)
+st.markdown("""
+🔧 DevOps & Cloud:
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="20">
+&nbsp; Git, Docker, GitHub Actions, Linux
+""", unsafe_allow_html=True)
+st.markdown("""
+📚 Analytics:
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" width="20">
+&nbsp; Databricks, Apache Spark
+""", unsafe_allow_html=True)
+
 
 
 # --- WORK HISTORY ---
@@ -214,5 +247,5 @@ for project, link in PROJECTS.items():
 st.write('\n')
 st.subheader("Training and Certifications ")
 st.write("---")
-for project, link in PROJECTS.items():
+for project, link in TRAINING_AND_CERT.items():
     st.write(f"[{project}]({link})")
