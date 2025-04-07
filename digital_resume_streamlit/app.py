@@ -22,8 +22,14 @@ Skilled in AI, ML Web development, Engineering Economics, with 4 years of experi
 """
 EMAIL = "georgeraulc@email.com"
 SOCIAL_MEDIA = {
-    "LinkedIn": "https://www.linkedin.com/in/george-cubas-55113a29/",
-    "GitHub": "https://github.com/mateBarey",
+    "LinkedIn": {
+        "url": "https://www.linkedin.com/in/george-cubas-55113a29/",
+        "icon": "https://cdn-icons-png.flaticon.com/512/174/174857.png"
+    },
+    "GitHub": {
+        "url": "https://github.com/mateBarey",
+        "icon": "https://cdn-icons-png.flaticon.com/512/733/733553.png"
+    }
 }
 #remember to add a selenium crawler and beautifulsoup code
 PROJECTS = {
@@ -66,16 +72,23 @@ with col2:
         file_name=resume_file.name,
         mime="application/octet-stream",
     )
-    st.markdown(f"📫 [Email me](mailto:{EMAIL})", unsafe_allow_html=True)
+    st.write("📫", EMAIL)
+
 
 
 
 # --- SOCIAL LINKS ---
-st.write('\n')
 cols = st.columns(len(SOCIAL_MEDIA))
-for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-    cols[index].markdown(f"[{platform}]({link})", unsafe_allow_html=True)
-
+for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
+    cols[index].markdown(
+        f"""
+        <a href="{meta['url']}" target="_blank">
+            <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
+            {platform}
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 # --- EXPERIENCE & QUALIFICATIONS ---
