@@ -83,14 +83,22 @@ with col1:
 with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
-    st.markdown(f"""
-    <a href="data:application/octet-stream;base64,{b64_pdf}" 
-       download="{resume_file.name}" 
-       onclick="window.plausible && window.plausible('Download Resume')"
-       style="font-size:18px;">
-    📄 Download Resume
-    </a>
-    """, unsafe_allow_html=True)
+    components.html(f"""
+        <a id="download-resume" href="data:application/octet-stream;base64,{b64_pdf}" 
+           download="{resume_file.name}" 
+           style="font-size:18px;">
+        📄 Download Resume
+        </a>
+
+        <script>
+          document.getElementById("download-resume").addEventListener("click", function() {{
+            if (window.plausible) {{
+              window.plausible("Download Resume");
+            }}
+          }});
+        </script>
+    """, height=40)
+
     st.write("📫", EMAIL)
 
 
