@@ -13,6 +13,7 @@ profile_pic = current_dir / "assets" / "profile-pic.png"
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | George Cubas"
 PAGE_ICON = ":wave:"
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 NAME = "George Cubas"
 DESCRIPTION = """
 Engineer and Python Developer with more than 10 years of experience.
@@ -30,8 +31,6 @@ SOCIAL_MEDIA = {
         "icon": "https://cdn-icons-png.flaticon.com/512/733/733553.png"
     }
 }
-
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # Inject Plausible <script> into head using components.html
 components.html(
@@ -66,7 +65,6 @@ TRAINING_AND_CERT = {
 
 }
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 
 
