@@ -3,13 +3,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 
-# Load CSS with stronger HTML targeting
-def load_css():
-    css_file = Path(__file__).parent / "styles" / "main.css"
-    with open(css_file) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_css()  # Call this early in your app
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
@@ -72,14 +66,16 @@ with col2:
         file_name=resume_file.name,
         mime="application/octet-stream",
     )
-    st.write("📫", EMAIL)
+    st.markdown(f"📫 [Email me](mailto:{EMAIL})", unsafe_allow_html=True)
+
 
 
 # --- SOCIAL LINKS ---
 st.write('\n')
 cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-    cols[index].write(f"[{platform}]({link})")
+    cols[index].markdown(f"[{platform}]({link})", unsafe_allow_html=True)
+
 
 
 # --- EXPERIENCE & QUALIFICATIONS ---
