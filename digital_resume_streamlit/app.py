@@ -1,8 +1,10 @@
 from pathlib import Path
 import base64
-import streamlit.components.v1 as components
+from plausible_patch import patch_plausible 
+patch_plausible()
 import streamlit as st
 from PIL import Image
+import streamlit.components.v1 as components
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).resolve().parent
