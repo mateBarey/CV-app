@@ -85,15 +85,13 @@ with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
     st.markdown(f"""
-    components.html(f"""
     <a href="data:application/octet-stream;base64,{b64_pdf}" 
        download="{resume_file.name}" 
-       onclick="window.plausible && window.plausible('Download Resume')" 
-       style="font-size:18px; text-decoration: none; font-weight: bold;">
+       onclick="window.plausible && window.plausible('Download Resume')"
+       style="font-size:18px;">
     📄 Download Resume
     </a>
-    """, height=40)
-
+    """, unsafe_allow_html=True)
     st.write("📫", EMAIL)
 
 
