@@ -4,6 +4,7 @@ import streamlit.components.v1 as components
 import streamlit as st
 from PIL import Image
 
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).resolve().parent
