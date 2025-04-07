@@ -83,40 +83,52 @@ with col1:
 with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
-    components.html(f"""
+    st.markdown(f"""
+    <div style='margin-top:10px;'>
+      <a id="download-resume"
+         href="data:application/octet-stream;base64,{b64_pdf}" 
+         download="{resume_file.name}"
+         style="
+            font-size: 17px;
+            color: inherit;
+            background-color: transparent;
+            border: 1px solid currentColor;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+         ">
+        📄 Download Resume
+      </a>
+    
+      <script>
+        const btn = document.getElementById("download-resume");
+        if (btn && window.plausible) {{
+          btn.addEventListener("click", function () {{
+            plausible("Download Resume");
+          }});
+        }}
+      </script>
+    </div>
+    """, unsafe_allow_html=True)
+    st.markdown(f"""
     <style>
-      .resume-button {{
-        display: inline-block;
-        background-color: #1f77b4;
-        color: white;
-        padding: 10px 16px;
+      .email-link {{
+        color: inherit;
         text-decoration: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        transition: background-color 0.3s;
+        transition: color 0.3s;
       }}
-      .resume-button:hover {{
-        background-color: #145a86;
+      .email-link:hover {{
+        color: #1f77b4; /* your resume button blue */
       }}
     </style>
-
-    <a id="download-resume" class="resume-button" 
-       href="data:application/octet-stream;base64,{b64_pdf}" 
-       download="{resume_file.name}">
-        📄 Download Resume
-    </a>
-
-    <script>
-      const dl = document.getElementById("download-resume");
-      dl.addEventListener("click", function() {{
-        if (window.plausible) {{
-          window.plausible("Download Resume");
-        }}
-      }});
-    </script>
-    """, height=80)
-    st.markdown(f"<p style='margin-top: 12px;'>📫 {EMAIL}</p>", unsafe_allow_html=True)
+    
+    <p style='margin-top: 12px; font-size:16px;'>
+      📫 <a class="email-link" href="mailto:{EMAIL}">{EMAIL}</a>
+    </p>
+    """, unsafe_allow_html=True)
 
 
 
@@ -127,7 +139,7 @@ cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].markdown(
         f"""
-        <a href="{meta['url']}" target="_blank" onclick="window.plausible && window.plausible('Click GitHub')">
+        <a href="{meta['url']}" target="_blank" onclick="window.plausible && window.plausible('Click {platform}')">
             <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
             {platform}
         </a>
