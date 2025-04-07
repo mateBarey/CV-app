@@ -142,7 +142,7 @@ st.markdown("""
 &nbsp; Dash, Streamlit, Plotly
 """, unsafe_allow_html=True)
 st.markdown("""
-🧠 Modeling: Logistic Regression, Linear Regression, RL, Neural Nets, LLM, RandomForest, Xgboost, Natural Evoluation
+🧠 Modeling: Logistic Regression, RL, Neural Nets, LLM, Xgboost, Natural Evoluation
 """)
 st.markdown("""
 🗄️ Databases:
