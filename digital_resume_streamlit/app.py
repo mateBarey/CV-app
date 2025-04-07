@@ -1,13 +1,28 @@
 from pathlib import Path
 import base64
+import streamlit.components.v1 as components
 import streamlit as st
 from PIL import Image
-    
+
+
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).resolve().parent
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "CV.pdf"
 profile_pic = current_dir / "assets" / "profile-pic.png"
+
+# Inject Plausible <script> into head using components.html
+components.html(
+    """
+    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+    <script>
+    window.plausible = window.plausible || function() {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+    </script>
+    """,
+    height=0,
+)
 
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
@@ -51,20 +66,6 @@ TRAINING_AND_CERT = {
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-import streamlit.components.v1 as components
-
-# Inject Plausible <script> into head using components.html
-components.html(
-    """
-    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
-    <script>
-    window.plausible = window.plausible || function() {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-    </script>
-    """,
-    height=0,
-)
 
 
 # --- LOAD CSS, PDF & PROFIL PIC ---
@@ -85,7 +86,7 @@ with col2:
     st.markdown(f"""
     <a href="data:application/octet-stream;base64,{b64_pdf}" 
        download="{resume_file.name}" 
-       onclick="plausible('Download Resume')" 
+       onclick="window.plausible && window.plausible('Download Resume')"
        style="font-size:18px;">
     📄 Download Resume
     </a>
@@ -101,7 +102,7 @@ cols = st.columns(len(SOCIAL_MEDIA))
 for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
     cols[index].markdown(
         f"""
-        <a href="{meta['url']}" target="_blank" onclick="plausible('Click {platform}')">
+        <a href="{meta['url']}" target="_blank" onclick="window.plausible && window.plausible('Click GitHub')">
             <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
             {platform}
         </a>
@@ -137,12 +138,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown("""
 📊 Data Visualization:
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Plotly_logo.png" width="20">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/plotly.svg" width="20" style="vertical-align:middle; margin-right:6px;">
 <img src="https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png" width="20">
 &nbsp; Dash, Streamlit, Plotly
 """, unsafe_allow_html=True)
 st.markdown("""
-🧠 Modeling: Logistic Regression, Linear Regression, RL, Neural Nets, LLM
+🧠 Modeling: Logistic Regression, Linear Regression, RL, Neural Nets, LLM, RandomForest, Xgboost, Natural Evoluation
 """)
 st.markdown("""
 🗄️ Databases:
