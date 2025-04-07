@@ -1,16 +1,18 @@
 from pathlib import Path
-
+import base64
 import streamlit as st
 from PIL import Image
-
-
+    
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).resolve().parent
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "CV.pdf"
 profile_pic = current_dir / "assets" / "profile-pic.png"
 
-
+with open(resume_file, "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+    b64_pdf = base64.b64encode(PDFbyte).decode()
+    
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | George Cubas"
 PAGE_ICON = ":wave:"
@@ -62,8 +64,7 @@ window.plausible = window.plausible || function() {
 # --- LOAD CSS, PDF & PROFIL PIC ---
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
-with open(resume_file, "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
+
 profile_pic = Image.open(profile_pic)
 
 
@@ -76,10 +77,14 @@ with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
     st.markdown(f"""
-    <a href="assets/CV.pdf" download onclick="plausible('Download Resume')" style="font-size:18px;">
+    <a href="data:application/octet-stream;base64,{b64_pdf}" 
+       download="{resume_file.name}" 
+       onclick="plausible('Download Resume')" 
+       style="font-size:18px;">
     📄 Download Resume
     </a>
     """, unsafe_allow_html=True)
+
     st.write("📫", EMAIL)
 
 
