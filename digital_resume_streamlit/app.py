@@ -43,7 +43,7 @@ TRAINING_AND_CERT = {
     "🏆 IBM - AI Engineering Professional": "https://www.coursera.org/account/accomplishments/specialization/certificate/XJ95RYV4Z5TC",
     "🏆 Google - Machine Learning ": "https://www.coursera.org/account/accomplishments/specialization/certificate/P57BYGZPYANV",
     "🏆 Google - Reinforcement Learning ": "https://www.coursera.org/account/accomplishments/certificate/AGP9TE8AFPSC",
-    "🏆 Databricks - Generative AI Application Deployment and Monitoring ": "https://partner-academy.databricks.com/learn/courses/2713/generative-ai-application-deployment-and-monitoring?hash=4eb84e548e6738f215a6b502ace79c310e93fd86&generated_by=975654",
+    "🏆 Databricks - Generative AI Application Deployment and Monitoring ": "https://www.linkedin.com/in/george-cubas-55113a29/overlay/1744050680291/single-media-viewer?type=DOCUMENT&profileId=ACoAAAXklY0Bqebj26kPZcGeVDc2Lwkgkw-Blmk&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B%2B6uqYaMwRTOebuqj%2BWU04g%3D%3D",
 
 }
 
