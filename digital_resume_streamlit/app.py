@@ -35,12 +35,8 @@ SOCIAL_MEDIA = {
 # Inject Plausible <script> into head using components.html
 components.html(
     """
-    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
-    <script>
-    window.plausible = window.plausible || function() {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-    </script>
+    <script defer data-domain="digital-resume-ms4l.onrender.com" 
+            src="https://plausible.io/js/script.js"></script>
     """,
     height=0,
 )
