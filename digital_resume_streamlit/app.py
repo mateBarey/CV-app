@@ -84,22 +84,40 @@ with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
     components.html(f"""
-        <a id="download-resume" href="data:application/octet-stream;base64,{b64_pdf}" 
-           download="{resume_file.name}" 
-           style="font-size:18px;">
+    <style>
+      .resume-button {{
+        display: inline-block;
+        background-color: #1f77b4;
+        color: white;
+        padding: 10px 16px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }}
+      .resume-button:hover {{
+        background-color: #145a86;
+      }}
+    </style>
+
+    <a id="download-resume" class="resume-button" 
+       href="data:application/octet-stream;base64,{b64_pdf}" 
+       download="{resume_file.name}">
         📄 Download Resume
-        </a>
+    </a>
 
-        <script>
-          document.getElementById("download-resume").addEventListener("click", function() {{
-            if (window.plausible) {{
-              window.plausible("Download Resume");
-            }}
-          }});
-        </script>
-    """, height=40)
+    <script>
+      const dl = document.getElementById("download-resume");
+      dl.addEventListener("click", function() {{
+        if (window.plausible) {{
+          window.plausible("Download Resume");
+        }}
+      }});
+    </script>
+    """, height=80)
+    st.markdown(f"<p style='margin-top: 12px;'>📫 {EMAIL}</p>", unsafe_allow_html=True)
 
-    st.write("📫", EMAIL)
 
 
 
