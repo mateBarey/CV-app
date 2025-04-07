@@ -4,31 +4,12 @@ import streamlit.components.v1 as components
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
-
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).resolve().parent
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "CV.pdf"
 profile_pic = current_dir / "assets" / "profile-pic.png"
 
-# Inject Plausible <script> into head using components.html
-components.html(
-    """
-    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
-    <script>
-    window.plausible = window.plausible || function() {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-    </script>
-    """,
-    height=0,
-)
-
-with open(resume_file, "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
-    b64_pdf = base64.b64encode(PDFbyte).decode()
-    
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Digital CV | George Cubas"
 PAGE_ICON = ":wave:"
@@ -49,6 +30,26 @@ SOCIAL_MEDIA = {
         "icon": "https://cdn-icons-png.flaticon.com/512/733/733553.png"
     }
 }
+
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+
+# Inject Plausible <script> into head using components.html
+components.html(
+    """
+    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+    <script>
+    window.plausible = window.plausible || function() {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+    </script>
+    """,
+    height=0,
+)
+
+with open(resume_file, "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+    b64_pdf = base64.b64encode(PDFbyte).decode()
+    
 #remember to add a selenium crawler and beautifulsoup code
 PROJECTS = {
     "🏆 DGenerative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Rag-GEN-AI",
