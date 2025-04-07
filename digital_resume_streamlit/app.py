@@ -50,15 +50,21 @@ TRAINING_AND_CERT = {
 }
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
-st.markdown("""
-<!-- Plausible Analytics -->
-<script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
-<script>
-window.plausible = window.plausible || function() {
-  (window.plausible.q = window.plausible.q || []).push(arguments)
-}
-</script>
-""", unsafe_allow_html=True)
+
+import streamlit.components.v1 as components
+
+# Inject Plausible <script> into head using components.html
+components.html(
+    """
+    <script defer data-domain="digital-resume-ms4l.onrender.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+    <script>
+    window.plausible = window.plausible || function() {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+    </script>
+    """,
+    height=0,
+)
 
 
 # --- LOAD CSS, PDF & PROFIL PIC ---
