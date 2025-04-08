@@ -215,7 +215,7 @@ st.subheader("Work History")
 st.write("---")
 
 # --- JOB 1
-st.write("🚧", "**Python Developer | University of Virginia**")
+st.write("🚧", "**Python Developer | EOG Resources**")
 st.write("03/2024 - 09/2024")
 st.write(
     """
