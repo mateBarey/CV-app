@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap');
 
+* {
+    font-family: 'Readex Pro';
+}
 
-* {font-family: 'Readex Pro';}
 section.main > div {
     padding-top: 2rem;
 }
@@ -10,6 +12,7 @@ body {
     background-color: #0e1117;
     color: #ffffff;
 }
+
 a {
     text-decoration: none;
     color: white !important;
@@ -21,13 +24,23 @@ a:hover {
     text-decoration: none;
 }
 
-ul {list-style-type: none;}
+ul {
+    list-style-type: none;
+}
 
 hr {
     margin-top: 0px;
     margin-bottom: 5%;
 }
 
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
