@@ -37,11 +37,11 @@ SOCIAL_MEDIA = {
     },
     "Gen AI Databricks Cert": {
         "url": BADGE_PAGE,
-        "icon": BADGE_IMG_BIG  # you can also point at a local copy in /assets if you downloaded it
+        "icon": BADGE_IMG_BIG
     }
 }
 
-# Inject Plausible <script> into head using components.html
+# Inject Plausible script
 components.html(
     """
     <script defer data-domain="digital-resume-ms4l.onrender.com" 
@@ -53,32 +53,11 @@ components.html(
 with open(resume_file, "rb") as pdf_file:
     PDFbyte = pdf_file.read()
     b64_pdf = base64.b64encode(PDFbyte).decode()
-    
-#remember to add a selenium crawler and beautifulsoup code
-PROJECTS = {
-    "🏆 Generative AI (RAG using Weaviate, Dspy) - A framework for integrating and retrieving information from multiple sources to enrich a LLM knowledge base and enhance its contextual accuracy": "https://github.com/mateBarey/Rag-GEN-AI",
-    "🏆 Apache Spark Prediction Pipeline - use IOT data and spark to predict Pressure": "https://github.com/mateBarey/Apache-Spark-IOT-Prediction-Pipeline",
-    "🏆 Actor Critic Reinforcement Learning NN - A reinforcement algorithm that uses an actor for finding the best policy and critic which enables finding the best probability associated with each action in order to solve the Cart Pole Problem ": "https://github.com/mateBarey/Reinforcement-Learning",
 
-}
-
-TRAINING_AND_CERT = {
-    "🏆 IBM - AI Engineering Professional": "https://www.coursera.org/account/accomplishments/specialization/certificate/XJ95RYV4Z5TC",
-    "🏆 Google - Machine Learning ": "https://www.coursera.org/account/accomplishments/specialization/certificate/P57BYGZPYANV",
-    "🏆 Google - Reinforcement Learning ": "https://www.coursera.org/account/accomplishments/certificate/AGP9TE8AFPSC",
-    "🏆 Databricks - Generative AI Application Deployment and Monitoring ": "https://www.linkedin.com/in/george-cubas-55113a29/overlay/1744050680291/single-media-viewer?type=DOCUMENT&profileId=ACoAAAXklY0Bqebj26kPZcGeVDc2Lwkgkw-Blmk&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B%2B6uqYaMwRTOebuqj%2BWU04g%3D%3D",
-
-}
-
-
-
-
-# --- LOAD CSS, PDF & PROFIL PIC ---
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 profile_pic = Image.open(profile_pic)
-
 
 # --- HERO SECTION ---
 col1, col2 = st.columns(2)
@@ -86,11 +65,9 @@ with col1:
     st.image(profile_pic, width=230)
 
 with col2:
-    # Name & description
     st.title(NAME)
     st.write(DESCRIPTION)
 
-    # Resume download button
     st.markdown(f"""
       <div style="margin-top:10px;">
         <a id="download-resume"
@@ -115,46 +92,54 @@ with col2:
       </div>
     """, unsafe_allow_html=True)
 
-    # Email, Badge & Social links all in one flex row
     st.markdown(f"""
       <style>
         .header-links {{
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           gap: 20px;
-          margin-top: 1rem;
+          margin-top: 1.2rem;
         }}
         .header-links a {{
           display: flex;
           align-items: center;
           text-decoration: none;
           color: inherit;
-          font-size: 16px;
+          font-size: 15.5px;
+          font-weight: 500;
+          border: 1px solid rgba(255,255,255,0.15);
+          padding: 6px 10px;
+          border-radius: 6px;
+          background-color: rgba(255,255,255,0.03);
+          transition: all 0.2s ease-in-out;
+        }}
+        .header-links a:hover {{
+          background-color: rgba(255,255,255,0.07);
         }}
         .header-links img {{
           vertical-align: middle;
-          margin-right: 6px;
+          margin-right: 8px;
+          width: 22px;
+          height: 22px;
+          object-fit: contain;
         }}
       </style>
       <div class="header-links">
-        <!-- Email -->
-        <a href="mailto:{EMAIL}">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24" />
+        <a href="mailto:{EMAIL}" onclick="window.plausible && plausible('Click Email')">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
           {EMAIL}
         </a>
-        <!-- Databricks badge -->
-        <a href="{BADGE_PAGE}" target="_blank">
-          <img src="{BADGE_IMG_BIG}" width="24" alt="Gen AI Badge" />
+        <a href="{BADGE_PAGE}" target="_blank" onclick="window.plausible && plausible('Click GenAI Badge')">
+          <img src="{BADGE_IMG_BIG}" />
           Gen AI Databricks Cert
         </a>
-        <!-- LinkedIn -->
-        <a href="{SOCIAL_MEDIA['LinkedIn']['url']}" target="_blank">
-          <img src="{SOCIAL_MEDIA['LinkedIn']['icon']}" width="24" />
+        <a href="{SOCIAL_MEDIA['LinkedIn']['url']}" target="_blank" onclick="window.plausible && plausible('Click LinkedIn')">
+          <img src="{SOCIAL_MEDIA['LinkedIn']['icon']}" />
           LinkedIn
         </a>
-        <!-- GitHub -->
-        <a href="{SOCIAL_MEDIA['GitHub']['url']}" target="_blank">
-          <img src="{SOCIAL_MEDIA['GitHub']['icon']}" width="24" />
+        <a href="{SOCIAL_MEDIA['GitHub']['url']}" target="_blank" onclick="window.plausible && plausible('Click GitHub')">
+          <img src="{SOCIAL_MEDIA['GitHub']['icon']}" />
           GitHub
         </a>
       </div>
@@ -197,7 +182,7 @@ st.subheader("Hard Skills")
 st.markdown("""
 👩‍💻 Programming:
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg"   width="20" alt="Rust">
+<img src="https://rustacean.net/assets/rustacean-orig-noshadow.svg"   width="20" alt="Rust">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" width="20">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain.svg" width="20">
  &nbsp; Python, Rust, R, Ruby, SQL, Scikit-learn, Pandas, Polars
