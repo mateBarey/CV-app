@@ -1,46 +1,48 @@
+/* Import your Readex Pro font */
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap');
 
+/* Apply font everywhere */
 * {
-    font-family: 'Readex Pro';
+  font-family: 'Readex Pro', sans-serif;
 }
 
+/* Main app container: dark background + white text */
+[data-testid="stAppViewContainer"] {
+  background-color: #0e1117 !important;
+  color: #ffffff !important;
+}
+
+/* Hide Streamlit’s top toolbar (includes hamburger menu), header & footer */
+[data-testid="stToolbar"],
+[data-testid="stHeader"],
+[data-testid="stFooter"] {
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep your existing layout tweaks */
 section.main > div {
-    padding-top: 2rem;
-}
-
-body {
-    background-color: #0e1117;
-    color: #ffffff;
-}
-
-a {
-    text-decoration: none;
-    color: white !important;
-    font-weight: 500;
-}
-
-a:hover {
-    color: #d33682 !important;
-    text-decoration: none;
+  padding-top: 2rem;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 hr {
-    margin-top: 0px;
-    margin-bottom: 5%;
+  margin-top: 0;
+  margin-bottom: 5%;
 }
 
-#MainMenu {
-    visibility: hidden;
+/* Links styling */
+a {
+  text-decoration: none !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease-in-out;
 }
-
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
+a:hover {
+  color: #d33682 !important;
 }
