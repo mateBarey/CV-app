@@ -163,18 +163,18 @@ with col2:
 
 
 
-# --- SOCIAL LINKS ---
-cols = st.columns(len(SOCIAL_MEDIA))
-for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
-    cols[index].markdown(
-        f"""
-        <a href="{meta['url']}" target="_blank" onclick="window.plausible && window.plausible('Click {platform}')">
-            <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
-            {platform}
-        </a>
-        """,
-        unsafe_allow_html=True
-    )
+# # --- SOCIAL LINKS ---
+# cols = st.columns(len(SOCIAL_MEDIA))
+# for index, (platform, meta) in enumerate(SOCIAL_MEDIA.items()):
+#     cols[index].markdown(
+#         f"""
+#         <a href="{meta['url']}" target="_blank" onclick="window.plausible && window.plausible('Click {platform}')">
+#             <img src="{meta['icon']}" width="24" style="vertical-align: middle; margin-right: 8px;">
+#             {platform}
+#         </a>
+#         """,
+#         unsafe_allow_html=True
+#     )
 
 
 
