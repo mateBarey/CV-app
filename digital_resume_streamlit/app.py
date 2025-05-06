@@ -86,55 +86,79 @@ with col1:
     st.image(profile_pic, width=230)
 
 with col2:
+    # Name & description
     st.title(NAME)
     st.write(DESCRIPTION)
+
+    # Resume download button
     st.markdown(f"""
-    <div style='margin-top:10px;'>
-      <a id="download-resume"
-         href="data:application/octet-stream;base64,{b64_pdf}" 
-         download="{resume_file.name}"
-         style="
-            font-size: 17px;
-            color: inherit;
-            background-color: transparent;
-            border: 1px solid currentColor;
-            padding: 8px 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 500;
-            transition: all 0.2s ease-in-out;
-         ">
-        📄 Download Resume
-      </a>
-    
-      <script>
-        const btn = document.getElementById("download-resume");
-        if (btn && window.plausible) {{
-          btn.addEventListener("click", function () {{
-            plausible("Download Resume");
-          }});
-        }}
-      </script>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown(f"""
-    <style>
-      .email-link {{
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s;
-      }}
-      .email-link:hover {{
-        color: #1f77b4; /* your resume button blue */
-      }}
-    </style>
-    
-    <p style='margin-top: 12px; font-size:16px;'>
-      📫 <a class="email-link" href="mailto:{EMAIL}">{EMAIL}</a>
-    </p>
+      <div style="margin-top:10px;">
+        <a id="download-resume"
+           href="data:application/octet-stream;base64,{b64_pdf}"
+           download="{resume_file.name}"
+           style="
+             font-size:17px; color:inherit;
+             background-color:transparent;
+             border:1px solid currentColor;
+             padding:8px 14px; border-radius:8px;
+             text-decoration:none; display:inline-block;
+             font-weight:500; transition:all .2s ease-in-out;
+           ">
+          📄 Download Resume
+        </a>
+        <script>
+          const btn = document.getElementById("download-resume");
+          if (btn && window.plausible) {{
+            btn.addEventListener("click", () => plausible("Download Resume"));
+          }}
+        </script>
+      </div>
     """, unsafe_allow_html=True)
 
+    # Email, Badge & Social links all in one flex row
+    st.markdown(f"""
+      <style>
+        .header-links {{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-top: 1rem;
+        }}
+        .header-links a {{
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: inherit;
+          font-size: 16px;
+        }}
+        .header-links img {{
+          vertical-align: middle;
+          margin-right: 6px;
+        }}
+      </style>
+      <div class="header-links">
+        <!-- Email -->
+        <a href="mailto:{EMAIL}">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24" />
+          {EMAIL}
+        </a>
+        <!-- Databricks badge -->
+        <a href="{BADGE_PAGE}" target="_blank">
+          <img src="{BADGE_IMG_BIG}" width="24" alt="Gen AI Badge" />
+          Gen AI Databricks Cert
+        </a>
+        <!-- LinkedIn -->
+        <a href="{SOCIAL_MEDIA['LinkedIn']['url']}" target="_blank">
+          <img src="{SOCIAL_MEDIA['LinkedIn']['icon']}" width="24" />
+          LinkedIn
+        </a>
+        <!-- GitHub -->
+        <a href="{SOCIAL_MEDIA['GitHub']['url']}" target="_blank">
+          <img src="{SOCIAL_MEDIA['GitHub']['icon']}" width="24" />
+          GitHub
+        </a>
+      </div>
+    """, unsafe_allow_html=True)
 
 
 
@@ -173,7 +197,7 @@ st.subheader("Hard Skills")
 st.markdown("""
 👩‍💻 Programming:
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="20">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" width="20">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg"   width="20" alt="Rust">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" width="20">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain.svg" width="20">
  &nbsp; Python, Rust, R, Ruby, SQL, Scikit-learn, Pandas, Polars
