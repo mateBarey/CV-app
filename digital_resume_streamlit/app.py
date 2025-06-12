@@ -245,6 +245,19 @@ st.write('\n')
 st.subheader("Work History")
 st.write("---")
 
+st.write("🚧", "**Python Developer | Sterling Lariat Ventures**")
+st.write("03/2025 - 06/2025")
+st.write(
+    """
+- ► Designed and deployed a production-grade FastAPI microservice for tracking and processing Stripe payment events through secure webhook endpoints.
+- ► Engineered webhook handlers for Stripe events like payment_intent.succeeded, charge.refunded, and invoice.created, enabling automated updates to customer and transaction databases.
+- ► Migrated legacy invoice generation logic from Pandas to Polars, achieving significant speed improvements through parallelized data transformations and memory-efficient pipelines.
+- ► Built a Polars-powered reporting engine that transformed raw Stripe event data into structured monthly invoices and financial summaries in seconds, with near-zero overhead for large datasets.
+- ► Implemented robust data models using Pydantic and persisted transactional state in PostgreSQL via SQLAlchemy ORM
+- ► Used asynchronous programming (AsyncIO) to handle Stripe webhook calls concurrently,minimizing latency and maximizing throughput
+- ► Delivered clean, modular code with unit test coverage and deployed via GitHub CI/CD and Docker for reliable, repeatable production releases.
+"""
+)
 # --- JOB 1
 st.write("🚧", "**Python Developer | EOG Resources**")
 st.write("03/2024 - 09/2024")
