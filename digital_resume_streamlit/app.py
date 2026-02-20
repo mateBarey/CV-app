@@ -6,6 +6,21 @@ import streamlit as st
 from PIL import Image
 import streamlit.components.v1 as components
 
+
+
+# Redirect immediately
+st.markdown("""
+    <meta http-equiv="refresh" content="0; url='https://cubas.dev'" />
+""", unsafe_allow_html=True)
+
+# Fallback message
+st.markdown("""
+    <div style="text-align: center; margin-top: 50px;">
+        <h3>Redirecting to <a href="https://cubas.dev">cubas.dev</a>...</h3>
+        <p>Click <a href="https://cubas.dev">here</a> if not redirected.</p>
+    </div>
+""", unsafe_allow_html=True)
+            
 BADGE_PAGE = "https://credentials.databricks.com/3177ab6f-1676-4b64-ba17-ef057a259eaf#acc.0jAGLJBc"
 BADGE_IMG_BIG = "https://templates.images.credential.net/17165027227082916957584247676509.png"
 
