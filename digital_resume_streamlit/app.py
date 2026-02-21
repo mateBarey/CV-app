@@ -1,18 +1,30 @@
 import streamlit as st
+import time
 
-# Force redirect immediately
-st.set_page_config(page_title="Redirecting...")  # THIS IS NOW THE FIRST AND ONLY CALL
+# Hide the Streamlit header/footer
+st.markdown("""
+    <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
 
-html = """
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url='https://cubas.dev'" />
-</head>
-<body>
-    <p>Redirecting to <a href="https://cubas.dev">cubas.dev</a>...</p>
-</body>
-</html>
-"""
+# JavaScript redirect (stronger than meta)
+st.markdown("""
+    <script>
+        window.location.replace("https://cubas.dev");
+    </script>
+""", unsafe_allow_html=True)
 
-st.components.v1.html(html, height=600)
+# Fallback message
+st.markdown("""
+    <div style="text-align: center; margin-top: 50px;">
+        <h3>Redirecting to <a href="https://cubas.dev">cubas.dev</a>...</h3>
+        <p>Click the link if not redirected automatically.</p>
+    </div>
+""", unsafe_allow_html=True)
+
+# Wait then force redirect via Python too
+time.sleep(2)
+st.switch_page("https://cubas.dev")  # This won't work but trying anyway
