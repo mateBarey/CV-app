@@ -1,26 +1,26 @@
 import streamlit as st
 
-# Override everything
+# Hide everything
 st.markdown("""
     <style>
-        .stApp { background: white; margin: 0; padding: 0; }
-        .main { margin: 0; padding: 0; }
-        .block-container { margin: 0; padding: 0; max-width: 100%; }
-        iframe { width: 100vw; height: 100vh; border: none; }
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .stApp { background: white; }
     </style>
 """, unsafe_allow_html=True)
 
-# Full-screen iframe that redirects
+# JavaScript that breaks out of iframe
 st.components.v1.html("""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="refresh" content="0; url='https://cubas.dev'" />
-    </head>
-    <body style="margin:0; padding:0; background:white;">
-        <p style="font-family:sans-serif; text-align:center; margin-top:40vh;">
-            Redirecting to <a href="https://cubas.dev">cubas.dev</a>...
-        </p>
-    </body>
-    </html>
-""", height=1000)
+    <script>
+        // Break out of any iframe
+        if (window.top !== window.self) {
+            window.top.location.href = "https://cubas.dev";
+        } else {
+            window.location.href = "https://cubas.dev";
+        }
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url='https://cubas.dev'">
+    </noscript>
+""", height=0)
