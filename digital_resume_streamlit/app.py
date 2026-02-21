@@ -11,20 +11,10 @@ import streamlit.components.v1 as components
 # Redirect immediately
 st.set_page_config(page_title="Redirecting...")
 
-html = """
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url='https://cubas.dev'" />
-    <link rel="canonical" href="https://cubas.dev" />
-</head>
-<body>
+st.markdown("""
+    <meta http-equiv="refresh" content="0; url='https://cubas.dev'">
     <p>Redirecting to <a href="https://cubas.dev">cubas.dev</a>...</p>
-</body>
-</html>
-"""
-
-st.components.v1.html(html, height=0)
+""", unsafe_allow_html=True)
             
 BADGE_PAGE = "https://credentials.databricks.com/3177ab6f-1676-4b64-ba17-ef057a259eaf#acc.0jAGLJBc"
 BADGE_IMG_BIG = "https://templates.images.credential.net/17165027227082916957584247676509.png"
