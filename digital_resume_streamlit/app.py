@@ -1,26 +1,11 @@
-import streamlit as st
+from flask import Flask, redirect, request
 
-# Hide everything
-st.markdown("""
-    <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        .stApp { background: white; }
-    </style>
-""", unsafe_allow_html=True)
+app = Flask(__name__)
 
-# JavaScript that breaks out of iframe
-st.components.v1.html("""
-    <script>
-        // Break out of any iframe
-        if (window.top !== window.self) {
-            window.top.location.href = "https://cubas.dev";
-        } else {
-            window.location.href = "https://cubas.dev";
-        }
-    </script>
-    <noscript>
-        <meta http-equiv="refresh" content="0; url='https://cubas.dev'">
-    </noscript>
-""", height=0)
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def catch_all(path):
+    return redirect("https://cubas.dev/" + path, code=308)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
